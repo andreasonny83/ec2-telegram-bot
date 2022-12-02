@@ -1,6 +1,25 @@
 const { Telegraf } = require("telegraf");
+const winston = require("winston");
 
 require("dotenv").config();
+
+const logger = winston.createLogger({
+  level: "verbose",
+  format: winston.format.simple(),
+  defaultMeta: { service: "sonny-trading-service" },
+  transports: [
+    new winston.transports.File({
+      filename: "debug.log",
+      maxsize: 10000000,
+    }),
+  ],
+});
+
+logger.add(
+  new winston.transports.Console({
+    format: winston.format.simple(),
+  })
+);
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = process.env.TOKEN;
@@ -17,7 +36,7 @@ Say something to me
 
 bot.use((ctx, next) => {
   if (ctx.message?.text) {
-    console.log(ctx.from.username + " said " + ctx.message.text);
+    logger.info(ctx.from.username + " said " + ctx.message.text);
   }
 
   next();
