@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "server:start": "npx pm2 start server.js",
     "server:stop": "npx pm2 stop all"
   },
@@ -23,5 +23,8 @@
     "dotenv": "^16.0.3",
     "telegraf": "^4.11.2",
     "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

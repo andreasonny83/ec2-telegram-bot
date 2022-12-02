@@ -3,10 +3,15 @@ const winston = require("winston");
 
 require("dotenv").config();
 
+const myFormat = winston.format.printf(
+  ({ _level, message, _label, timestamp }) => {
+    return `${timestamp}: ${message}`;
+  }
+);
+
 const logger = winston.createLogger({
   level: "verbose",
-  format: winston.format.simple(),
-  defaultMeta: { service: "sonny-trading-service" },
+  format: winston.format.combine(winston.format.timestamp(), myFormat),
   transports: [
     new winston.transports.File({
       filename: "debug.log",
