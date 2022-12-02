@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "server:start": "npx pm2 start server.js --name telegram-bot",
-    "server:stop": "npx pm2 stop --name telegram-bot"
+    "server:stop": "npx pm2 stop telegram-bot"
   },
   "repository": {
     "type": "git",
