@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "server:start": "npx pm2 start server.js",
+    "server:stop": "npx pm2 stop all"
   },
   "repository": {
     "type": "git",
