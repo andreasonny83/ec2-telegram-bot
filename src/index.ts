@@ -20,8 +20,8 @@ let users: Users = {};
 
 // replace the value below with the Telegram token you receive from @BotFather
 const TOKEN = `${process.env.TOKEN}`;
-const API_URL = `${process.env.API_URL}`;
 const TESTNET = Boolean(`${process.env.TESTNET}`);
+const API_URL = `${process.env.API_URL}`;
 
 // Create a bot
 const bot = new Telegraf(TOKEN);
